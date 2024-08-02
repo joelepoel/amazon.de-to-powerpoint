@@ -46,3 +46,4 @@
     - The "presentationer" function creates a Powerpoint presentation with a title slide and creates a separate slide for each scraped product. It also adds a logo, if given, and it saves the Powerpoint presentation as givenname.pptx, wherein givenname acts as the name you entered.
     - The "imageremover" function removes all the images, that were scraped from the urls, from the folder. This way there are no leftovers and you don't have to worry about that when you use the code another time.
 "# amazon.de-to-powerpoint" 
+"# amazon.de-to-powerpoint" 
