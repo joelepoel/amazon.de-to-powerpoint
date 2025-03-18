@@ -1,49 +1,91 @@
-# AMAZON TO POWERPOINT
+AMAZON TO POWERPOINT
 
-#### Description:
+Amazon to PowerPoint is an automatic PowerPoint generator that converts Amazon product pages into a formatted presentation. Each product gets its own slide with essential information such as product image, title, price, and specifications. This project allows you to generate a PowerPoint presentation without needing to own Microsoft PowerPoint.
+Before You Start (One-Time Setup)
 
-    In short:
+    Set up headers.py
+        Open headers.py and follow the instructions to set up your user agent.
+        
+    Install Dependencies
+    
+        Run the following command to install the necessary Python dependencies:
+        pip install -r requirements.txt
 
-    This code allows you to generate a powerpoint with a title slide and one slide per product found on Amazon.
-    Every slide will be complete with an image, price, title and the specifications of the specified product.
-    You don't need to own Powerpoint to use it.
+How to Personalize
 
+    Open project.py and go to lines 39-43.
+    Modify the values on those lines to match your preferences (e.g., template settings, text formatting, etc.).
+    Save the changes to project.py.
 
+How to Use
 
-    Before you use(one-time steps):
-    -Open headers.py and follow short instructions (user agent)
-    -pip install the listed dependencies in requirements.txt (run: pip install -r requirements)
+    Ensure that the above one-time setup and personalization steps are complete.
+    Open links.txt and paste the URLs of the Amazon products you want to include in the presentation (one URL per line).
+    Save links.txt.
+    (Optional) If you want to include a logo in your presentation, place an image named logo.png in the project folder.
+    Run project.py and provide a filename for the PowerPoint presentation when prompted.
+    That's it! Your PowerPoint presentation will be generated and saved with the given filename.
 
+Detailed Description
 
+Amazon to PowerPoint reads product URLs from a list and outputs a PowerPoint presentation with a title slide and a slide for each product.
+Core Functions in project.py:
 
-    How to personalize:
-    1. in project.py, on lines 39-43, change the values to your liking
-    2. save project.py
+    main function:
+    Prompts the user for a filename and coordinates the execution of the other functions. All customization settings are centralized here for easy modification.
 
+    linkreader function:
+    Reads the product URLs from links.txt and adds them to a list for processing.
 
+    linkchecker function:
+    Validates the URLs to ensure they are valid Amazon.de product links. If any link is invalid, the program exits.
 
-    How to use:
-    1. Do the steps above to make sure the code works and is personalized to your liking
-    2. Open links.txt
-    3. Paste the urls of the products you want to use in links.txt (one per line)
-    4. Save links.txt
-    5. If you want to use a logo, add a logo to the folder with the name "logo.png"
-    6. Run project.py and pick a filename
-    7. Ta-da!
+    scraper function:
+    Scrapes the specified product URLs for the product’s title, price, specifications, and image. The image is downloaded and saved in the project folder.
 
+    presentationer function:
+    Creates the PowerPoint presentation with:
+        A title slide
+        A slide for each product
+        A logo (if provided)
+        Saves the presentation with the name you enter.
 
+    imageremover function:
+    Cleans up the folder by removing the product images that were downloaded during the scraping process, ensuring there are no leftover files.
 
-    A more detailed description of the project:
+Project Structure
 
-    AMAZON TO POWERPOINT is an automatic Powerpoint generator with images, productspecifications and the titles from products sold on Amazon.de
-    reads from a list of product urls and outputs them into a Powerpoint presentation.
+.
+├── headers.py          # Contains user agent setup
+├── links.txt           # List of Amazon product URLs (one per line)
+├── logo.png (optional) # Logo image to be included in PowerPoint
+├── project.py          # Main script to run the program
+├── requirements.txt    # List of dependencies
+└── README.md           # This file
 
-    Project.py exists out of a few functions:
-    - The "main" function prompts the user for a filename, and calls all the other functions. I have also put all the personalization variables here, to make it easier for the user.
-    - The "linkreader" function reads all urls in the linkts.txt file and appends them to a list
-    - The "linkchecker" function checks the validity of the given urls. If a link is not a valid amazon.de link, it gives a sytem exit.
-    - The "scraper" function scrapes the given urls for a product title, price and productspecifications. It also saves the product image to the folder.
-    - The "presentationer" function creates a Powerpoint presentation with a title slide and creates a separate slide for each scraped product. It also adds a logo, if given, and it saves the Powerpoint presentation as givenname.pptx, wherein givenname acts as the name you entered.
-    - The "imageremover" function removes all the images, that were scraped from the urls, from the folder. This way there are no leftovers and you don't have to worry about that when you use the code another time.
-"# amazon.de-to-powerpoint" 
-"# amazon.de-to-powerpoint" 
+Dependencies
+
+The project uses the following Python libraries:
+
+    requests
+    beautifulsoup4
+    python-pptx
+    Pillow
+    And others specified in requirements.txt.
+
+Make sure to install the dependencies with the following command:
+
+pip install -r requirements.txt
+
+Notes
+
+    This project is currently designed to work with Amazon.de product links.
+    Ensure you have the required permissions to scrape Amazon or any website in accordance with their terms of service.
+    The project is designed to make a simple PowerPoint presentation, and you can customize it further by modifying the code.
+
+License
+
+This project is open-source. You may freely use, modify, and distribute it with attribution. For commercial use, make sure to verify it complies with Amazon’s terms of service.
+Conclusion
+
+With this tool, you can easily create a PowerPoint presentation from product information on Amazon. Whether you're gathering product information for a presentation or just want to automate this process, this tool can save you time.
